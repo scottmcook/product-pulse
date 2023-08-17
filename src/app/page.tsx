@@ -1,9 +1,5 @@
-type Devices = {
-  product: {
-    name: string;
-  };
-  id: string;
-}
+
+
 
 export default async function Home() {
   const res = await fetch('https://static.ui.com/fingerprint/ui/public.json');
