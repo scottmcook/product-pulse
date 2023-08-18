@@ -24,3 +24,7 @@
 .background-color--light {
   background: var(--fill-background-light);
 }
+
+.font-dark-gray {
+  color: var(--color-dark-gray);
+}
