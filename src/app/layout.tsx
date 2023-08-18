@@ -1,7 +1,13 @@
+// Components
 import NavBar from '@/components/NavBar/NavBar';
 import Toolbar from '@/components/Toolbar/Toolbar';
+import CardLayout from '@/components/CardLayout/CardLayout';
+
+// Styles
 import './globals.css'
 import { Lato } from 'next/font/google'
+
+// Utilities
 import useSWR from 'swr';
 
 const lato = Lato({
@@ -26,7 +32,7 @@ export default function Layout({
       <body className={lato.className}>
         <NavBar />
         <Toolbar />
-        {/* CardContainer */}
+        <CardLayout />
       </body>
     </html>
   )
