@@ -1,14 +1,15 @@
 // Components
-import NavBar from '@/components/NavBar/NavBar';
-import Toolbar from '@/components/Toolbar/Toolbar';
-import CardLayout from '@/components/CardLayout/CardLayout';
+import NavBar from "@/components/NavBar/NavBar";
+import Toolbar from "@/components/Toolbar/Toolbar";
+import ProductLayout from "@/components/ProductLayout/ProductLayout";
+import ProductTable from "@/components/ProductTable/ProductTable";
 
 // Styles
-import './globals.css'
-import { Lato } from 'next/font/google'
+import "./globals.css";
+import { Lato } from "next/font/google";
 
 // Utilities
-import useSWR from 'swr';
+import useSWR from "swr";
 
 const lato = Lato({
   subsets: ["latin"],
@@ -20,20 +21,17 @@ type Devices = {
     name: string;
   };
   id: string;
-}
+};
 
-export default function Layout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <html>
       <body className={lato.className}>
         <NavBar />
         <Toolbar />
-        <CardLayout />
+        <ProductLayout />
+        <ProductTable />
       </body>
     </html>
-  )
+  );
 }
