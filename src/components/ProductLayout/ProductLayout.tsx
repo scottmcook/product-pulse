@@ -10,6 +10,7 @@ function ProductLayout() {
   let isTable = false;
 
   const UIDB_URL = "https://static.ui.com/fingerprint/ui/public.json";
+  const UIDB_IMAGE_URL = "https://static.ui.com/fingerprint/ui";
   const fetcher = async (url: RequestInfo | URL) =>
     fetch(url).then((res) => res.json());
   const { data, error } = useSWR(UIDB_URL, fetcher);
@@ -43,7 +44,14 @@ function ProductLayout() {
             (device: {
               id: React.Key | null | undefined;
               product: { name: String };
-            }) => <ProductCard key={device.id} name={device.product.name} />
+              icon: { resolutions: Array<Number>; id: String };
+            }) => (
+              <ProductCard
+                key={device.id}
+                name={device.product.name}
+                imageUrl={`${UIDB_IMAGE_URL}/icons/${device.icon.id}_${device.icon.resolutions[0][0]}x${device.icon.resolutions[0][0]}.png`}
+              />
+            )
           )}
       </div>
     </>
