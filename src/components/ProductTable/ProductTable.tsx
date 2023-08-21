@@ -1,20 +1,32 @@
 import React from "react";
 
 function ProductTable() {
+  let devices = 123;
+
   return (
     <table className="table-auto">
-      <thead>
+      <colgroup>
+        <col span={1} className=""></col>
+        <col span={1} className=""></col>
+        <col span={1} className="w-2/3"></col>
+      </colgroup>
+      <thead className="text-left uppercase">
         <tr>
-          <th>Song</th>
-          <th>Artist</th>
-          <th>Year</th>
+          <th>{devices}</th>
+          <th>Product Line</th>
+          <th>Name</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td>The Sliding Mr. Bones (Next Stop, Pottersville)</td>
-          <td>Malcolm Lockyer</td>
-          <td>1961</td>
+          <td>
+            <img
+              alt="poip"
+              src="https://static.ui.com/fingerprint/ui/icons/0b6d0790-dea7-47a0-a1a6-929b85b0f247_25x25.png"
+            ></img>
+          </td>
+          <td>airMAX</td>
+          <td>airCube ISP</td>
         </tr>
         <tr>
           <td>Witchy Woman</td>
@@ -23,7 +35,10 @@ function ProductTable() {
         </tr>
         <tr>
           <td>Shining Star</td>
-          <td>Earth, Wind, and Fire</td>
+          <td>
+            Earth, Wind, and Fire Earth, Wind, and Fire Earth, Wind, and Fire
+            Earth, Wind, and Fire
+          </td>
           <td>1975</td>
         </tr>
       </tbody>
