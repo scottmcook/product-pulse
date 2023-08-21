@@ -1,4 +1,4 @@
-// Components
+// UI Components
 import NavBar from "@/components/NavBar/NavBar";
 import Toolbar from "@/components/Toolbar/Toolbar";
 import ProductLayout from "@/components/ProductLayout/ProductLayout";
@@ -7,9 +7,6 @@ import ProductTable from "@/components/ProductTable/ProductTable";
 // Styles
 import "./globals.css";
 import { Lato } from "next/font/google";
-
-// Utilities
-import useSWR from "swr";
 
 const lato = Lato({
   subsets: ["latin"],
@@ -30,7 +27,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         <NavBar />
         <Toolbar />
         <ProductLayout />
-        <ProductTable />
       </body>
     </html>
   );
