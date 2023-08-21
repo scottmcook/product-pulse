@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import ProductCard from "../ProductCard/ProductCard";
 import ProductTable from "../ProductTable/ProductTable";
@@ -5,12 +6,13 @@ import ProductTable from "../ProductTable/ProductTable";
 // Data fetching
 import useSWR from "swr";
 
-const UIDB_URL = "https://static.ui.com/fingerprint/ui/public.json";
-const fetcher = (UIDB_URL) => fetch(UIDB_URL).then((res) => res.json());
-
 function ProductLayout() {
   let isTable = false;
-  const { data, isLoading, isError } = useProducts();
+
+  const UIDB_URL = "https://static.ui.com/fingerprint/ui/public.json";
+  const fetcher = async (url: RequestInfo | URL) =>
+    fetch(url).then((res) => res.json());
+  const { data, error } = useSWR(UIDB_URL, fetcher);
 
   if (isTable) {
     return (
@@ -22,7 +24,10 @@ function ProductLayout() {
   return (
     <>
       <div className="grid grid-cols-5 gap-5 mt-6 mx-14">
-        <ProductCard name={"PlaceholderProductCard"} />
+        {data &&
+          data.devices.map((device) => (
+            <ProductCard key={device.id} name={device.product.name} />
+          ))}
       </div>
     </>
   );
