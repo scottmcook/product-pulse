@@ -38,7 +38,7 @@ function ProductLayout() {
   }
   return (
     <>
-      <div className="grid lg:grid-cols-5 grid-cols-3 gap-5 mt-6 mx-14">
+      <div className="grid lg:grid-cols-5 md:grid-cols-3 sm:grid-cols-1 gap-5 mt-6 mx-14">
         {data &&
           data.devices.map(
             (device: {
