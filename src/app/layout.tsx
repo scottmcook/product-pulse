@@ -25,7 +25,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     <html>
       <body className={lato.className}>
         <NavBar />
-        <ProductLayout />
+        <ProductLayout isTable={true} />
       </body>
     </html>
   );
