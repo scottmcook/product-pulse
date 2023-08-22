@@ -38,17 +38,19 @@ function ProductLayout() {
   }
   return (
     <>
-      <div className="grid grid-cols-5 gap-5 mt-6 mx-14">
+      <div className="grid lg:grid-cols-5 grid-cols-3 gap-5 mt-6 mx-14">
         {data &&
           data.devices.map(
             (device: {
               id: React.Key | null | undefined;
-              product: { name: String };
-              icon: { resolutions: Array<Number>; id: String };
+              product: { name: string };
+              line: { name: string };
+              icon: { resolutions: number[]; id: string };
             }) => (
               <ProductCard
                 key={device.id}
                 name={device.product.name}
+                productType={device.line.name}
                 imageUrl={`${UIDB_IMAGE_URL}/icons/${device.icon.id}_${device.icon.resolutions[0][0]}x${device.icon.resolutions[0][0]}.png`}
               />
             )
