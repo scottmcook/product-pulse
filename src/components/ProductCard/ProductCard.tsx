@@ -9,17 +9,17 @@ interface Product {
 
 function ProductCard(props: Product) {
   return (
-    <div className="flex flex-col border border-[#dbdce1] h-48 rounded-lg">
+    <div className="flex flex-col border border-[#dbdce1] rounded-lg">
       <div className="flex justify-center w-full background-color--light">
         <Image
           className=""
           alt={props.name}
           height={124}
-          width={100}
+          width={124}
           src={props.imageUrl}
         />
       </div>
-      <div className="mt-3 ml-3">
+      <div className="mt-3 ml-3 mb-3">
         <div>{props.name}</div>
         <div className="text-sm text-gray-600">{props.productType}</div>
       </div>
