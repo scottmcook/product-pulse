@@ -51,7 +51,7 @@ function ProductLayout() {
                 key={device.id}
                 name={device.product.name}
                 productType={device.line.name}
-                imageUrl={`${UIDB_IMAGE_URL}/${device.icon.id}_${device.icon.resolutions[3][0]}x${device.icon.resolutions[3][0]}.png`}
+                imageUrl={`${UIDB_IMAGE_URL}/${device.icon.id}_257x257.png`}
               />
             )
           )}
