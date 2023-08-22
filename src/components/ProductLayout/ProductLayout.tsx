@@ -13,8 +13,6 @@ interface ProductLayout {
 }
 
 function ProductLayout(props: ProductLayout) {
-  props.isTable = true;
-
   const UIDB_URL = "https://static.ui.com/fingerprint/ui/public.json";
   const UIDB_IMAGE_URL = "https://static.ui.com/fingerprint/ui/icons";
   const fetcher = async (url: RequestInfo | URL) =>
