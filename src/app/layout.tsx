@@ -1,6 +1,6 @@
 // UI Components
 import NavBar from "@/components/NavBar/NavBar";
-import Toolbar from "@/components/Toolbar/Toolbar";
+import Toolbar from "@/components/ProductToolbar/ProductToolbar";
 import ProductLayout from "@/components/ProductLayout/ProductLayout";
 import ProductTable from "@/components/ProductTable/ProductTable";
 
@@ -25,7 +25,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     <html>
       <body className={lato.className}>
         <NavBar />
-        <Toolbar />
         <ProductLayout />
       </body>
     </html>
