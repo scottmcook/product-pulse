@@ -1,12 +1,18 @@
+// Utilities
 "use client";
 import React from "react";
 import { useState } from "react";
-import ProductToolbar from "../ProductToolbar/ProductToolbar";
-import ProductCard from "../ProductCard/ProductCard";
-import ProductTable from "../ProductTable/ProductTable";
 
 // Data fetching
 import useSWR from "swr";
+
+// UI Components
+import ProductToolbar from "../ProductToolbar/ProductToolbar";
+import ProductCard from "../ProductCard/ProductCard";
+import ProductTable from "../ProductTable/ProductTable";
+import Image from "next/image";
+import ListViewLogo from "../../icons/list-view.png";
+import GridViewLogo from "../../icons/grid-view.png";
 
 function ProductLayout() {
   const [isTable, setLayout] = useState(false);
@@ -41,17 +47,39 @@ function ProductLayout() {
   return (
     <>
       <div className="flex justify-between border border-y-[#ededf0] px-7">
-        <input className="background-color--light" placeholder="Search" />
+        <input
+          className="w-80 my-2 py-2 pl-3 rounded-md background-color--light"
+          placeholder="Search"
+        />
 
-        <div>
-          <button onClick={handleGridToggle}>Toggle Grid</button>
-          <button onClick={handleTableToggle}>Toggle Table</button>
+        <div className="flex items-center gap-x-5">
+          <div>
+            <Image
+              alt="list view icon"
+              className="cursor-pointer"
+              width={20}
+              height={20}
+              src={ListViewLogo}
+              onClick={handleTableToggle}
+            />
+          </div>
+          <div>
+            <Image
+              alt="grid view icon"
+              className="cursor-pointer"
+              width={20}
+              height={20}
+              src={GridViewLogo}
+              onClick={handleGridToggle}
+            />
+          </div>
+
           <div>Filter</div>
         </div>
       </div>
 
       {!isTable ? (
-        <div className="grid grid-cols-5 gap-5 mt-6 mx-14">
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-5 mt-6 mx-14">
           {data &&
             data.devices.map(
               (device: {
