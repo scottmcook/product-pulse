@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-
+import { useState } from "react";
 import ProductToolbar from "../ProductToolbar/ProductToolbar";
 import ProductCard from "../ProductCard/ProductCard";
 import ProductTable from "../ProductTable/ProductTable";
@@ -8,15 +8,20 @@ import ProductTable from "../ProductTable/ProductTable";
 // Data fetching
 import useSWR from "swr";
 
-interface ProductLayout {
-  isTable: boolean;
-}
-
-function ProductLayout(props: ProductLayout) {
+function ProductLayout() {
+  const [isTable, setLayout] = useState(false);
   const UIDB_URL = "https://static.ui.com/fingerprint/ui/public.json";
   const UIDB_IMAGE_URL = "https://static.ui.com/fingerprint/ui/icons";
   const fetcher = async (url: RequestInfo | URL) =>
     fetch(url).then((res) => res.json());
+
+  const handleGridToggle = () => {
+    setLayout(false);
+  };
+
+  const handleTableToggle = () => {
+    setLayout(true);
+  };
 
   const { data, error } = useSWR(UIDB_URL, fetcher);
   if (error)
@@ -35,9 +40,17 @@ function ProductLayout(props: ProductLayout) {
 
   return (
     <>
-      <ProductToolbar />
+      <div className="flex justify-between border border-y-[#ededf0] px-7">
+        <input className="background-color--light" placeholder="Search" />
 
-      {!props.isTable ? (
+        <div>
+          <button onClick={handleGridToggle}>Toggle Grid</button>
+          <button onClick={handleTableToggle}>Toggle Table</button>
+          <div>Filter</div>
+        </div>
+      </div>
+
+      {!isTable ? (
         <div className="grid grid-cols-5 gap-5 mt-6 mx-14">
           {data &&
             data.devices.map(
