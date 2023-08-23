@@ -16,7 +16,7 @@ Time was the most critical resource for this project. Unfortunately, I did not h
 
 ## Getting Started
 
-First, run the development server:
+After installing the dependencies (`npm run i`), run the development server:
 
 ```bash
 npm run dev
