@@ -11,8 +11,12 @@ import ProductToolbar from "../ProductToolbar/ProductToolbar";
 import ProductCard from "../ProductCard/ProductCard";
 import ProductTable from "../ProductTable/ProductTable";
 import Image from "next/image";
+
+// Images
 import ListViewLogo from "../../icons/list-view.png";
+import ListViewLogoActive from "../../icons/list-view-active.png";
 import GridViewLogo from "../../icons/grid-view.png";
+import GridViewLogoActive from "../../icons/grid-view-active.png";
 
 function ProductLayout() {
   const [isTable, setLayout] = useState(false);
@@ -20,6 +24,9 @@ function ProductLayout() {
   const UIDB_IMAGE_URL = "https://static.ui.com/fingerprint/ui/icons";
   const fetcher = async (url: RequestInfo | URL) =>
     fetch(url).then((res) => res.json());
+
+  let handleGridLogo = !isTable ? GridViewLogoActive : GridViewLogo;
+  let handleListLogo = isTable ? ListViewLogoActive : ListViewLogo;
 
   const handleGridToggle = () => {
     setLayout(false);
@@ -56,20 +63,24 @@ function ProductLayout() {
           <div>
             <Image
               alt="list view icon"
-              className="cursor-pointer"
+              className={`${
+                isTable ? "background-color--light" : ""
+              } cursor-pointer`}
               width={20}
               height={20}
-              src={ListViewLogo}
+              src={handleListLogo}
               onClick={handleTableToggle}
             />
           </div>
           <div>
             <Image
               alt="grid view icon"
-              className="cursor-pointer"
+              className={`${
+                !isTable ? "background-color--light" : ""
+              } cursor-pointer`}
               width={20}
               height={20}
-              src={GridViewLogo}
+              src={handleGridLogo}
               onClick={handleGridToggle}
             />
           </div>
@@ -79,26 +90,26 @@ function ProductLayout() {
       </div>
 
       {!isTable ? (
-        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-5 mt-6 mx-14">
-          {data &&
-            data.devices.map(
-              (device: {
-                id: React.Key | null | undefined;
-                product: { name: string };
-                line: { name: string };
-                icon: { resolutions: number[]; id: string };
-              }) => (
-                <>
+        <>
+          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-5 mt-6 mx-14">
+            {data &&
+              data.devices.map(
+                (device: {
+                  id: React.Key | null | undefined;
+                  product: { name: string };
+                  line: { name: string };
+                  icon: { resolutions: number[]; id: string };
+                }) => (
                   <ProductCard
                     key={device.id}
                     name={device.product.name}
                     productType={device.line.name}
                     imageUrl={`${UIDB_IMAGE_URL}/${device.icon.id}_257x257.png`}
                   />
-                </>
-              )
-            )}
-        </div>
+                )
+              )}
+          </div>
+        </>
       ) : (
         <div className="grid mt-6 mx-28 text-neutral-600">
           <table className="table-auto">
