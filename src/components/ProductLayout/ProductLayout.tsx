@@ -120,7 +120,7 @@ function ProductLayout() {
             </colgroup>
             <thead className="text-left uppercase">
               <tr>
-                <th># devices</th>
+                <th></th>
                 <th>Product Line</th>
                 <th>Name</th>
               </tr>
