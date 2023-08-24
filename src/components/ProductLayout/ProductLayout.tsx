@@ -1,7 +1,6 @@
 // Utilities
 "use client";
-import React from "react";
-import { useState } from "react";
+import React, { useReducer, useState } from "react";
 
 // Data fetching
 import useSWR from "swr";
@@ -20,6 +19,7 @@ import GridViewLogoActive from "../../icons/grid-view-active.png";
 
 function ProductLayout() {
   const [isTable, setLayout] = useState(false);
+
   const UIDB_URL = "https://static.ui.com/fingerprint/ui/public.json";
   const UIDB_IMAGE_URL = "https://static.ui.com/fingerprint/ui/icons";
   const fetcher = async (url: RequestInfo | URL) =>
@@ -50,7 +50,6 @@ function ProductLayout() {
         <h1>Loading...</h1>
       </div>
     );
-
   return (
     <>
       <div className="flex justify-between border border-y-[#ededf0] px-7">
@@ -92,22 +91,7 @@ function ProductLayout() {
       {!isTable ? (
         <>
           <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-5 mt-6 mx-14">
-            {data &&
-              data.devices.map(
-                (device: {
-                  id: React.Key | null | undefined;
-                  product: { name: string };
-                  line: { name: string };
-                  icon: { resolutions: number[]; id: string };
-                }) => (
-                  <ProductCard
-                    key={device.id}
-                    name={device.product.name}
-                    productType={device.line.name}
-                    imageUrl={`${UIDB_IMAGE_URL}/${device.icon.id}_257x257.png`}
-                  />
-                )
-              )}
+            <ProductCard products={data} />
           </div>
         </>
       ) : (
