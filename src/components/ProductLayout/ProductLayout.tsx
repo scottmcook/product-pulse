@@ -96,40 +96,7 @@ function ProductLayout() {
         </>
       ) : (
         <div className="grid mt-6 mx-28 text-neutral-600">
-          <table className="table-auto">
-            <colgroup>
-              <col span={1} className=""></col>
-              <col span={1} className=""></col>
-              <col span={1} className="w-2/3"></col>
-            </colgroup>
-            <thead className="text-left uppercase">
-              <tr>
-                <th></th>
-                <th>Product Line</th>
-                <th>Name</th>
-              </tr>
-            </thead>
-            <tbody>
-              {data &&
-                data.devices.map(
-                  (device: {
-                    id: React.Key | null | undefined;
-                    product: { name: string };
-                    line: { name: string };
-                    icon: { resolutions: number[]; id: string };
-                  }) => (
-                    <>
-                      <ProductTable
-                        key={device.id}
-                        name={device.product.name}
-                        productLine={device.line.name}
-                        imageUrl={`${UIDB_IMAGE_URL}/${device.icon.id}_25x25.png`}
-                      />
-                    </>
-                  )
-                )}
-            </tbody>
-          </table>
+          <ProductTable products={data} />
         </div>
       )}
     </>
