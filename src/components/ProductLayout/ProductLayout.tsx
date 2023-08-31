@@ -20,7 +20,7 @@ import GridViewLogoActive from "../../icons/grid-view-active.png";
 function ProductLayout() {
   const [isTable, setLayout] = useState(false);
 
-  const UIDB_URL = "https://static.ui.com/fingerprint/ui/public.json";
+  const FAKE_STORE_URL = "https://fakestoreapi.com/products?limit100";
   const UIDB_IMAGE_URL = "https://static.ui.com/fingerprint/ui/icons";
   const fetcher = async (url: RequestInfo | URL) =>
     fetch(url).then((res) => res.json());
@@ -36,7 +36,7 @@ function ProductLayout() {
     setLayout(true);
   };
 
-  const { data, error } = useSWR(UIDB_URL, fetcher);
+  const { data, error } = useSWR(FAKE_STORE_URL, fetcher);
   if (error)
     return (
       <div>
@@ -90,7 +90,7 @@ function ProductLayout() {
 
       {!isTable ? (
         <>
-          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-5 mt-6 mx-14">
+          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-5 mt-6 mx-14">
             <ProductCard products={data} />
           </div>
         </>
