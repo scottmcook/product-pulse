@@ -1,4 +1,4 @@
-This is a [Next.js](https://nextjs.org/) project deployed on [Vercel](https://vercel.com/). Utility classes from Tailwind CSS were used alongside some custom CSS.
+This is a [Next.js](https://nextjs.org/) project deployed on [Vercel](https://vercel.com/) using [FakeStoreAPI](https://fakestoreapi.com/docs). Utility classes from Tailwind CSS were used alongside some custom CSS.
 
 - [Live site](https://ubiquiti-productivity-tool.vercel.app/)
 - [GitHub repo](https://github.com/scottmcook/ubiquiti-productivity-tool)
