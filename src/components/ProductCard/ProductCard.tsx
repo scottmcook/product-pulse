@@ -20,6 +20,7 @@ function ProductCard({ products }) {
           id: React.Key | null | undefined;
           title: string;
           category: string;
+          image: string;
           icon: { resolutions: number[]; id: string };
         }) => {
           return (
@@ -27,6 +28,13 @@ function ProductCard({ products }) {
               key={product.id}
               className="flex flex-col border border-[#dbdce1] rounded-lg hover:scale-110 transition duration-200 cursor-pointer object-cover"
             >
+              <Image
+                className=""
+                alt={product.title}
+                height={124}
+                width={124}
+                src={product.image}
+              />
               <div className="flex justify-center w-full background-color--light"></div>
               <div className="mt-3 ml-3 mb-3">
                 <div>{product.title}</div>
