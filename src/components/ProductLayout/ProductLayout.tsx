@@ -21,7 +21,6 @@ function ProductLayout() {
   const [isTable, setLayout] = useState(false);
 
   const FAKE_STORE_URL = "https://fakestoreapi.com/products?limit100";
-  const UIDB_IMAGE_URL = "https://static.ui.com/fingerprint/ui/icons";
   const fetcher = async (url: RequestInfo | URL) =>
     fetch(url).then((res) => res.json());
 
