@@ -26,7 +26,7 @@ function ProductCard({ products }) {
           return (
             <div
               key={product.id}
-              className="flex flex-col border border-[#dbdce1] rounded-lg hover:scale-110 transition duration-200 cursor-pointer object-cover"
+              className="flex flex-col pt-3 border border-[#dbdce1] rounded-lg hover:scale-110 transition duration-200 cursor-pointer object-cover"
             >
               <Image
                 className="self-center"
