@@ -23,7 +23,7 @@ type Devices = {
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <title>Scott Cook | Uqiquiti</title>
+      <title>Scott Cook | Pulse Products</title>
       <body className={lato.className}>
         <NavBar />
         <ProductLayout />
