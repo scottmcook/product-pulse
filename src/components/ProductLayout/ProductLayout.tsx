@@ -89,7 +89,7 @@ function ProductLayout() {
 
       {!isTable ? (
         <>
-          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-5 mt-6 mx-14">
+          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-5 mt-6 mx-14">
             <ProductCard products={data} />
           </div>
         </>
