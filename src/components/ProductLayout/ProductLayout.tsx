@@ -21,7 +21,6 @@ function ProductLayout() {
   const [isTable, setLayout] = useState(false);
 
   const FAKE_STORE_URL = "https://fakestoreapi.com/products?limit100";
-  const UIDB_IMAGE_URL = "https://static.ui.com/fingerprint/ui/icons";
   const fetcher = async (url: RequestInfo | URL) =>
     fetch(url).then((res) => res.json());
 
@@ -90,7 +89,7 @@ function ProductLayout() {
 
       {!isTable ? (
         <>
-          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-5 mt-6 mx-14">
+          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-5 mt-6 mx-14">
             <ProductCard products={data} />
           </div>
         </>

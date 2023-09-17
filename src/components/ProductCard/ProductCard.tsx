@@ -26,16 +26,16 @@ function ProductCard({ products }) {
           return (
             <div
               key={product.id}
-              className="flex flex-col border border-[#dbdce1] rounded-lg hover:scale-110 transition duration-200 cursor-pointer object-cover"
+              className="flex flex-col pt-3 border border-[#dbdce1] rounded-lg hover:scale-110 transition duration-200 cursor-pointer object-cover"
             >
               <Image
-                className=""
+                className="self-center"
                 alt={product.title}
-                height={124}
-                width={124}
+                height={150}
+                width={150}
                 src={product.image}
+                style={{ objectFit: "contain", height: 150 }}
               />
-              <div className="flex justify-center w-full background-color--light"></div>
               <div className="mt-3 ml-3 mb-3">
                 <div>{product.title}</div>
                 <div className="text-sm text-gray-600">{product.category}</div>
@@ -44,7 +44,6 @@ function ProductCard({ products }) {
           );
         }
       )}
-      ;
     </>
   );
 }
